@@ -1,7 +1,7 @@
 {
   "name": "bem-query",
   "version": "0.0.0",
-  "description": "Query DOM using BEM for lazy people.",
+  "description": "DOM queries using BEM for lazy people.",
   "author": "Nicolas Gryman <ngryman@gmail.com> (http://ngryman.sh)",
   "license": "MIT",
   "repository": "ngryman/bem-query",

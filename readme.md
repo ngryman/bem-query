@@ -5,7 +5,7 @@
 [travis-image]: https://img.shields.io/travis/ngryman/bem-query.svg?style=flat
 [travis-url]: https://travis-ci.org/ngryman/bem-query
 
-> Query DOM using BEM for lazy people.
+> DOM queries using BEM for lazy people.
 
 
 `bem-query` is the lazy version of `querySelector` and `querySelectorAll` for people using
