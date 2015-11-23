@@ -1,0 +1,17 @@
+{
+  "extends": "ngryman",
+
+  "env": {
+    "browser": true,
+    "node": true
+  },
+
+  "rules": {
+    "no-console": 0,
+    "strict": 0
+  },
+
+  "globals": {
+    "define": true
+  }
+}

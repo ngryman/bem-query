@@ -1,0 +1,36 @@
+{
+  "name": "bem-query",
+  "version": "0.0.0",
+  "description": "Query DOM using BEM for lazy people.",
+  "author": "Nicolas Gryman <ngryman@gmail.com> (http://ngryman.sh)",
+  "license": "MIT",
+  "repository": "ngryman/bem-query",
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.12"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint *.js",
+    "spec": "mocha-phantomjs test.html",
+    "test": "npm run lint -s && npm run spec -s",
+    "dev": "onchange *.js -- npm test"
+  },
+  "keywords": [
+    "bem",
+    "query",
+    "select",
+    "querySelector",
+    "querySelectorAll",
+  ],
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "eslint": "^0.24.0",
+    "eslint-config-ngryman": "^0.2.1",
+    "mocha": "^2.3.4",
+    "mocha-phantomjs": "^4.0.1",
+    "onchange": "^1.1.0"
+  }
+}

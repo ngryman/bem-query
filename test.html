@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="node_modules/mocha/mocha.css">
+</head>
+<body>
+  <div id="mocha"></div>
+  <div id="fixtures">
+    <div id="ns-1">
+      <div class="block">
+        <div class="block__element--modifier"></div>
+      </div>
+      <div class="block--modifier">
+        <div class="block__element"></div>
+      </div>
+    </div>
+    <div id="ns-2">
+      <div class="block">
+        <div class="block__element--modifier"></div>
+      </div>
+      <div class="block--modifier">
+        <div class="block__element--modifier"></div>
+      </div>
+    </div>
+  </div>
+  <script src="node_modules/mocha/mocha.js"></script>
+  <script src="node_modules/chai/chai.js"></script>
+  <script>
+    mocha.ui('bdd')
+    expect = chai.expect
+  </script>
+  <script src="index.js"></script>
+  <script src="test.js"></script>
+  <script>
+    mocha.run()
+  </script>
+</body>
+</html>
