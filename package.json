@@ -23,7 +23,7 @@
     "query",
     "select",
     "querySelector",
-    "querySelectorAll",
+    "querySelectorAll"
   ],
   "devDependencies": {
     "chai": "^3.0.0",
