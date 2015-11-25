@@ -11,9 +11,7 @@
 }(function() {
   'use strict'
 
-  var scope = null
-
-  function query(method, block, element) {
+  function select(context, method, block, element) {
     var selector = '.' + block.replace(' ', '--')
     if (element) {
       if (~selector.indexOf('--')) {
@@ -22,35 +20,91 @@
       selector += '__' + element.replace(' ', '--')
     }
 
-    var node = (scope || document)[method](selector)
-    scope = null
-    return node
+    context._el = (context._el || document)[method](selector)
+    return context
   }
 
   /* -------------------------------------------------------------------------- */
 
-  function bem() {
-    return bem.query.apply(this, arguments)
-  }
-
-  bem.q =
-  bem.query = function(block, element) {
-    return query('querySelector', block, element)
-  }
-
-  bem.qa =
-  bem.queryAll = function(block, element) {
-    return query('querySelectorAll', block, element)
-  }
-
-  bem.s =
-  bem.scope = function(ancestor) {
-    if ('string' === typeof ancestor) {
-      ancestor = document.querySelector(ancestor)
+  function Bem() {
+    if (!this instanceof Bem) {
+      return Bem.query.apply(this, arguments)
     }
-    scope = ancestor
-    return bem
   }
 
-  return bem
+  /** Instance methods. */
+  var proto = {
+    /**
+     * Selects an element given its BEM selector.
+     * @param  {string} block
+     * @param  {string} element
+     * @return {Bem}
+     */
+    select: function(block, element) {
+      return select(this, 'querySelector', block, element)
+    },
+
+    /**
+     * Selects an element given its CSS selector.
+     * @param  {string|Node} selector
+     * @return {Bem}
+     */
+    scope: function(selector) {
+      this._el = 'string' === typeof selector
+        ? document.querySelector(selector)
+        : selector
+      return this
+    },
+
+    /**
+     * Gets an element given its BEM selector.
+     * @param  {string} block
+     * @param  {string} element
+     * @return {Node}
+     */
+    query: function(block, element) {
+      select(this, 'querySelector', block, element)
+      return this._el
+    },
+
+    /**
+     * Gets a collection of elements given their BEM selector.
+     * @param  {string} block
+     * @param  {string} element
+     * @return {NodeList}
+     */
+    queryAll: function(block, element) {
+      select(this, 'querySelectorAll', block, element)
+      return this._el
+    }
+  }
+
+  /** Aliases. */
+  proto.s = proto.select
+  proto.sc = proto.scope
+  proto.q = proto.query
+  proto.qa = proto.queryAll
+
+  /** Static methods version. */
+  for (var method in proto) {
+    Bem[method] = (function() {
+      var m = method
+      return function() {
+        var instance = new Bem()
+        return instance[m].apply(instance, arguments)
+      }
+    }())
+  }
+
+  /**
+   * Gets the final selected element.
+   * @return {Node}
+   */
+  proto.el = function() {
+    return this._el
+  }
+  proto.e = proto.el
+
+  Bem.prototype = proto
+  return Bem
 }))

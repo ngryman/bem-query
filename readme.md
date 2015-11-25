@@ -16,6 +16,10 @@ BEM and tired of typing sometimes-quite-long-selectors.
 
 ```js
 // gets a block
+bem.select('block').el()
+// => querySelector('.block')
+
+// ...or directly
 bem.query('block')
 // => querySelector('.block')
 
@@ -27,8 +31,15 @@ bem.query('block modifier')
 bem.query('block modifier', 'element modifier')
 // => querySelector('.block--modifier .block__element--modifier')
 
+// gets a collection of elements
+bem.queryAll('block')
+// => querySelectorAll('.block')
+
 // if you are more lazy...
 bem('block modifier', 'element modifier')
+
+// you can also chain several queries
+bem.select('block').select('sub-block').el()
 ```
 
 
@@ -38,30 +49,39 @@ It's defined as an *universal module* so you can use it with `commonjs`, `amd`, 
 using `bem` global variable.
 
 
-#### `bem.query(block, [element])`
+#### `bem.select(block, [element])`
 
 Both `block` and `element` match the following pattern: `name[ modifier]`:
  - `name`: name of the block or element.
  - `modifier` (optional): name of the modifier.
 
-**Aliases**: `bem`, `bem.q`
+**Chainable**
+**Aliases**: `s`
+
+#### `bem.scope(ancestor)`
+
+Basically same as `selector` but accepts a CSS selector instead.
+
+**Chainable**
+**Aliases**: `sc`
+
+#### `bem.el()`
+
+Gets the final DOM element that is matched.
+
+**Aliases**: `e`
+
+#### `bem.query(block, [element])`
+
+Shortcut for `ben.select().el()`
+
+**Aliases**: `bem`, `q`
 
 #### `bem.queryAll(block, [element])`
 
 It does the same as `bem.query` but returns a collection of elements.
 
-#### `bem.scope(ancestor)`
-
-Defines a scope for the next query:
- - `ancestor`: CSS selector or DOM node.
-
-It can be chained directly:
-
-```js
-bem.scope('header').query('nav')
-```
-
-**Aliases**: `bem.s`
+**Aliases**: `qa`
 
 
 ## License
