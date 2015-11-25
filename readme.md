@@ -1,4 +1,4 @@
-# badge-size [![npm][npm-image]][npm-url] [![travis][travis-image]][travis-url]
+# bem-query [![npm][npm-image]][npm-url] [![travis][travis-image]][travis-url]
 
 [npm-image]: https://img.shields.io/npm/v/bem-query.svg?style=flat
 [npm-url]: https://npmjs.org/package/bem-query
