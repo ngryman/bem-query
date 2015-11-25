@@ -55,14 +55,14 @@ Both `block` and `element` match the following pattern: `name[ modifier]`:
  - `name`: name of the block or element.
  - `modifier` (optional): name of the modifier.
 
-**Chainable**
+**Chainable**<br>
 **Aliases**: `s`
 
 #### `bem.scope(ancestor)`
 
 Basically same as `selector` but accepts a CSS selector instead.
 
-**Chainable**
+**Chainable**<br>
 **Aliases**: `sc`
 
 #### `bem.el()`
