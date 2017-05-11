@@ -1,5 +1,7 @@
 # bem-query [![npm][npm-image]][npm-url] [![travis][travis-image]][travis-url]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ngryman/bem-query.svg)](https://greenkeeper.io/)
+
 [npm-image]: https://img.shields.io/npm/v/bem-query.svg?style=flat
 [npm-url]: https://npmjs.org/package/bem-query
 [travis-image]: https://img.shields.io/travis/ngryman/bem-query.svg?style=flat
